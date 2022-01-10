@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+      body{
+        width: "100vw";
+        height: "100vh";
+        text-align: center;
+        font-family: 'Roboto';
+        font-size: large;
+      }
+      button {
+        font-family: 'Roboto';
+        font-size: large;
+      }
+      table, tr, td, th{
+        border: 1px solid black;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>VIEW USER PROFILE</h1>
+    <br />
+    <h2>Username: <%=username %></h2>
+    <h3>Bio: <%- bio %></h3>
+    <br /><br />
+    <h2>POSTS MADE</h2>
+    <br />
+    <table>
+      <tr><th>Post Data</th><th>Timestamp</th></tr>
+      <% for(var i=0; i < posts.length; i++){ %>
+      <tr><td><%- posts[i].post %></td><td><%- posts[i].timestamp %></td></tr>
+      <% } %>
+      </table>
+      <br /><br />
+      <script>
+        document.write("<p>Current user: "+decodeURIComponent(document.location.href.substring(document.location.href.indexOf('context=')+8))+"</p>");
+      </script>
+      <button onclick="goBack()">BACK</button>
+      <script>
+        function goBack(){
+          window.history.back();
+        }
+      </script>
+  </body>
+</html>

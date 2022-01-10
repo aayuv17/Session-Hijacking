@@ -1,0 +1,64 @@
+<html>
+  <head>
+    <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+      body{
+        width: "100vw";
+        height: "100vh";
+        text-align: center;
+        font-family: 'Roboto';
+        font-size: large;
+      }
+      button {
+        font-family: 'Roboto';
+        font-size: large;
+      }
+      table{
+        margin-left: auto;
+        margin-right: auto;
+      }
+      table, tr, td, th{
+        border: 1px solid black;
+        text-align: center;
+      }
+      td {
+        width: 60%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>ALL POSTS</h1>
+    <br />
+    <p>Number of posts displayed: <%- noOfPosts %></p>
+    <br />
+    <script>
+    document.write("<form action="+document.location.href+" method='POST'>");
+      document.write("<label>Enter number of posts to display: </label>");
+      document.write("<input type='text' name='noOfPosts'>");
+      document.write("&nbsp;&nbsp;<button type='submit'>Enter</button>");
+    document.write("</form>");
+    </script>
+    <br /><br />
+    <a href="http://localhost:3000/<%= username %>/createPost"
+      ><button>CREATE POST</button></a
+    >
+    <a href="http://localhost:3000/<%= username %>/userProfile?context=<%= username %>"
+      ><button>MY PROFILE</button></a
+    >
+    <br /><br /><br />
+    <table>
+      <tr><th>Post Data</th><th>Timestamp</th><th>Posted By</th></tr>
+      <% for(var i=0; i < noOfPosts; i++){ %>
+      <tr>
+        <td><%- posts[i].post %></td><td><%- posts[i].timestamp %></td><td>
+        <a href="http://localhost:3000/<%-posts[i].username %>/userProfile?context=<%= username %>"
+          ><%- posts[i].username %></a
+        ></td>
+        </tr>
+      <% } %>
+      </table>
+  </body>
+</html>

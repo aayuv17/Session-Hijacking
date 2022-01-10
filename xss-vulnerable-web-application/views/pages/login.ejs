@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <style>
+      body{
+        width: "100vw";
+        height: "100vh";
+        text-align: center;
+      }
+      h1 {
+        font-family: 'Roboto';
+      }
+      form {
+        font-family: 'Roboto';
+        font-size: large;
+      }
+      button{
+        font-family: 'Roboto';
+        font-size: large;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Login</h1>
+    <br />
+    <form method="POST" action="http://localhost:3000/login">
+      <label>Enter username: </label>
+      <input type="text" name="username" />
+      <br />
+      <label>Enter password: </label>
+      <input type="password" name="password" />
+      <br /><br />
+      <button type="submit">Enter</button>
+    </form>
+  </body>
+</html>
